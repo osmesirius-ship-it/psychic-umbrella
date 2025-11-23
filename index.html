@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent 13 | Bright Intelligence Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="topbar">
+    <div class="brand">
+      <span class="pill pill--bright">Agent 13</span>
+      <span class="brand__tag">Bright Intelligence Hub</span>
+    </div>
+    <div class="topbar__links">
+      <a class="topbar__link active" href="./index.html">Control Surface</a>
+      <a class="topbar__link" href="./workspace.html">Conversation Workspace</a>
+      <a class="topbar__link" href="#live">Live Access</a>
+    </div>
+    <div class="topbar__actions">
+      <button class="btn ghost auth-btn" id="mainGoogle">Sign in with Google</button>
+      <span class="pill" id="mainUser">Signed out</span>
+      <button class="btn ghost" id="topNewChat" aria-label="Jump to workspace chat">Open Chat</button>
+      <div class="api-cluster" aria-label="Attach OpenAI">
+        <input type="password" id="apiKey" placeholder="OpenAI API key" aria-label="OpenAI API key">
+        <button class="btn ghost" id="saveApiKey">Attach API</button>
+        <span class="pill" id="apiStatus">API key missing</span>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">Agent 13 · Adaptive Intelligence</p>
+      <h1>Bright, bold, and ready to think for you.</h1>
+      <p class="lede">A vibrant control surface for an AI that can switch between online reconnaissance and offline resilience, summon the right personas, and orchestrate seasoned experts with symbolic overlays when you need them.</p>
+      <div class="hero__actions">
+        <button class="btn primary" id="assembleButton">Assemble Expert Team</button>
+        <button class="btn ghost" id="liveLookup">Run Live Lookup</button>
+      </div>
+    </div>
+    <div class="hero__panel">
+      <div class="status-card">
+        <div class="status-row">
+          <p>Connection</p>
+          <label class="toggle">
+            <input type="checkbox" id="modeToggle" aria-label="Toggle online or offline mode">
+            <span class="slider"></span>
+          </label>
+          <span id="modeLabel" class="pill pill--bright">Online</span>
+        </div>
+        <p class="status-sub">Switch to offline to use cached intelligence and self-contained reasoning.</p>
+        <div class="status-row">
+          <p>Symbolic overlay</p>
+          <label class="toggle">
+            <input type="checkbox" id="overlayToggle" aria-label="Toggle symbolic overlay">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="status-row">
+          <p>Information depth</p>
+          <input type="range" id="depthControl" min="1" max="5" value="3" aria-label="Information depth">
+          <span id="depthLabel" class="pill">Level 3</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="live">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Persona studio</p>
+          <h2>Pick how Agent 13 shows up</h2>
+        </div>
+        <div class="persona-select">
+          <label for="persona">Persona</label>
+          <select id="persona">
+            <option value="strategist">Strategist · crisp battle plans</option>
+            <option value="researcher">Researcher · source-focused</option>
+            <option value="explainer">Explainer · clarity first</option>
+            <option value="builder">Builder · ship fast</option>
+          </select>
+        </div>
+      </header>
+      <div class="persona-grid" id="personaGrid"></div>
+    </section>
+
+    <section class="panel">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Symbolic overlay</p>
+          <h2>Signals at a glance</h2>
+          <p class="lede">Overlay optional icons to highlight rigor, risks, or required depth. Switch it off for a cleaner view.</p>
+        </div>
+      </header>
+      <div class="overlay-grid" id="overlayGrid"></div>
+    </section>
+
+    <section class="panel">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Expertise rally</p>
+          <h2>Bring in the 30-year veterans</h2>
+          <p class="lede">Agent 13 can convene a multidisciplinary council. Name the objective, pick the depth, and it crafts a roster.</p>
+        </div>
+        <div class="objective-form">
+          <label for="objective">Objective</label>
+          <input type="text" id="objective" placeholder="e.g., Launch a satellite network" aria-label="Desired objective">
+        </div>
+      </header>
+      <div class="team-grid" id="teamGrid"></div>
+    </section>
+
+    <section class="panel">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Live access</p>
+          <h2>Proof of reach</h2>
+          <p class="lede">Tap the button to see a live pull from the web. In offline mode you’ll see cached intel instead.</p>
+        </div>
+      </header>
+      <pre class="terminal" id="liveOutput">Ready for a pulse check.</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Agent 13 • Adaptive depth, symbolic overlays, and expert councils at your command.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
