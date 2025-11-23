@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent 13 Workspace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="workspace-body">
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="brand brand--sidebar">
+        <span class="pill pill--bright">Agent 13</span>
+        <span class="brand__tag">Conversation Workspace</span>
+      </div>
+      <button class="btn primary sidebar__action" id="newChat">+ New Thread</button>
+      <div class="sidebar__section">
+        <p class="eyebrow">Recents</p>
+        <ul class="sidebar__list" id="recentConvos">
+          <li class="sidebar__item active">Launch strategy with overlay</li>
+          <li class="sidebar__item">Security audit - offline</li>
+          <li class="sidebar__item">Patent landscape review</li>
+        </ul>
+      </div>
+      <div class="sidebar__section">
+        <p class="eyebrow">Knowledge Spaces</p>
+        <ul class="sidebar__list pill-list">
+          <li class="pill">Product Briefs</li>
+          <li class="pill">Research Library</li>
+          <li class="pill">Operations Runbooks</li>
+        </ul>
+      </div>
+      <div class="sidebar__footer">
+        <a href="./index.html" class="topbar__link">Control Surface</a>
+        <a href="#" class="topbar__link muted">Settings</a>
+      </div>
+    </aside>
+
+    <main class="workspace__main">
+      <header class="workspace__header">
+        <div>
+          <p class="eyebrow">Live collaboration</p>
+          <h1>Multi-panel chat like a full app</h1>
+          <p class="lede">Persona selection, adjustable information depth, symbolic overlays, offline/online switching, and expert team prompts ready to go.</p>
+        </div>
+        <div class="workspace__controls">
+          <div class="auth-cluster">
+            <button class="btn ghost auth-btn" id="workspaceGoogle">Continue with Google</button>
+            <span class="pill" id="workspaceUser">Signed out</span>
+          </div>
+          <label class="persona-select">Persona
+            <select id="personaWorkspace">
+              <option value="strategist">Strategist</option>
+              <option value="researcher">Researcher</option>
+              <option value="explainer">Explainer</option>
+              <option value="builder">Builder</option>
+            </select>
+          </label>
+          <label class="toggle" title="Toggle online or offline">
+            <input type="checkbox" id="workspaceMode">
+            <span class="slider"></span>
+          </label>
+          <span id="workspaceModeLabel" class="pill pill--bright">Online</span>
+          <label class="toggle" title="Toggle symbolic overlay">
+            <input type="checkbox" id="workspaceOverlay">
+            <span class="slider"></span>
+          </label>
+          <label class="depth-compact" for="workspaceDepth">Depth
+            <input type="range" id="workspaceDepth" min="1" max="5" value="3">
+            <span class="pill" id="workspaceDepthLabel">Level 3</span>
+          </label>
+        </div>
+      </header>
+
+      <section class="chat-shell">
+        <div class="chat-stream" id="chatStream"></div>
+        <div class="composer" id="composer">
+          <div class="composer__suggestions">
+            <button class="pill">Use expert council</button>
+            <button class="pill">Request symbolic overlay</button>
+            <button class="pill">Push to online mode</button>
+          </div>
+          <form id="chatForm" class="composer__form">
+            <input id="chatInput" type="text" placeholder="Message Agent 13..." aria-label="Message Agent 13">
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+          <div class="composer__footer">
+            <span class="pill" id="composerStatus">Online · live web pulls available</span>
+            <span class="pill">Symbolic overlay toggles supported</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel split-panel">
+        <div>
+          <p class="eyebrow">Symbolic overlays</p>
+          <h3>Adjust what you see</h3>
+          <div class="overlay-grid" id="workspaceOverlayGrid"></div>
+        </div>
+        <div>
+          <p class="eyebrow">Expert council</p>
+          <h3>Summon the 30-year veterans</h3>
+          <div class="team-grid" id="workspaceTeam"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
